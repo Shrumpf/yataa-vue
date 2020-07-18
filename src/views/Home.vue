@@ -19,13 +19,13 @@ export default {
     };
   },
   created() {
-    socket = io("http://localhost:3000");
+    socket = io(process.env.VUE_APP_API);
     socket.on("connect", function() {
       console.log("connected");
     });    
   },
   mounted() {
-    axios.get("http://localhost:3000/todos").then(response => {
+    axios.get(process.env.VUE_APP_API + "/todos").then(response => {
       this.todos = response.data;
     });
     socket.on("pushedTodo", data => {

@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     changeTodoState: function() {
-      axios.put(`http://localhost:3000/todos/${this.todo.Id}/done`).then(response => {
+      axios.put(`${process.env.VUE_APP_API}/todos/${this.todo.Id}/done`).then(response => {
       console.log(response);
     });
     }
